@@ -1,21 +1,37 @@
 // import logo from './logo.svg';
 import './App.css';
-
 import React from 'react';
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Main from './components/Main'
+import SelectedBeast from './components/SelectedBeast'
+
+import data from './components/data.json'
+
 // import HornedBeasts from './components/HornedBeasts'
 
-
+console.log(data);
 class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state={
+      show:false
+    }
+}
+  updateState =()=>{
+this.setState({
+  show:true
+})
+  }
+    
   render() {
     return (
 
       <>
         
       <Header/>
-      <Main/>
+      <Main dataArry={data} updateStateFun={this.updateState}/>
+      <SelectedBeast setShow={this.updateState}/>
       <Footer/>
         
         
@@ -23,8 +39,8 @@ class App extends React.Component {
     )
 
   }
-}
 
+}
 // export default App;
 
 

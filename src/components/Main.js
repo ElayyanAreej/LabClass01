@@ -1,14 +1,20 @@
 import React from 'react';
 import HornedBeasts from './HornedBeasts'
-import data from './data.json'
-
-console.log(data);
+// import data from './data.json'
 
 class Main extends React.Component {
+    constructor(props){
+        super(props)
+        this.state={
+
+        }
+    }
+    
+    // console.log(data);
     render() {
         return (
 
-            data.map(item => {
+          this.props.dataArry.map(item => {
            return  <HornedBeasts title={item.title} imageUrl={item.image_url} description={item.description} />
         })  )
 

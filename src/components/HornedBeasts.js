@@ -18,7 +18,11 @@ class HornedBeasts extends React.Component {
         })
     }
 
-
+    handleClick=(event)=>{
+        event.preventDefualt();
+        this.updateStateFun2();
+        console.log(this.show);
+        }
 
     render() {
         return (
@@ -30,7 +34,7 @@ class HornedBeasts extends React.Component {
 
             // </div>
             <div>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '18rem' }} onclick={this.handleClick}>
                 <Card.Img variant="top" src={this.props.imageUrl} />
                 <Card.Body>
                     <Card.Title>{this.props.title}</Card.Title>
