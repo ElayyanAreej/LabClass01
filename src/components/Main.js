@@ -2,7 +2,6 @@ import React from 'react';
 import HornedBeasts from './HornedBeasts'
 import data from './data.json'
 
-// let dataArra = data;
 console.log(data);
 
 class Main extends React.Component {
