@@ -48,7 +48,8 @@ class App extends React.Component {
 
 
   updatePage= (event) => {
-   console.log(typeof(event.target.value));
+  
+    if(Number(event.target.value)!== -1){
    this.setState({ horns: Number(event.target.value) });
    let newData=data.filter((item)=>{
    if(item.horns=== Number(event.target.value)){
@@ -57,8 +58,10 @@ class App extends React.Component {
    });
    this.setState({ data: newData });
 console.log(newData,"",this.state.horns);
-
-   this.render();
+  }else{
+    this.setState({ data: data });
+  }
+  //  this.render();
   }
 
   render() {
