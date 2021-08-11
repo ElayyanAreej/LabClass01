@@ -3,14 +3,7 @@ import HornedBeasts from './HornedBeasts'
 // import data from './data.json'
 
 class Main extends React.Component {
-    // constructor(props){
-    //     super(props)
-    //     this.state={
-
-    //     }
-    // }
-    
-    // console.log(data);
+   
     render() {
         return (
 

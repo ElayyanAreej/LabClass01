@@ -26,18 +26,6 @@ class HornedBeasts extends React.Component {
 
     updateState =()=>{
         this.props.updateState();
-        console.log(this.props.title);
-        // showPicture = (title) => {
-        //     let pickedImage = ImgData.find(playImage => {
-        //       if (playImage.title === title) {
-        //         return playImage;
-        //       }
-        //     })
-        //     this.setState({
-        //       picture: pickedImage,
-        //       Show: true,
-        //     })
-        //   }
        this.props.updateStateData(this.props.title,this.props.description,this.props.imageUrl);
           }
             
