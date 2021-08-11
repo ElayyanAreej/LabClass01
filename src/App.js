@@ -2,6 +2,7 @@
 import './App.css';
 import React from 'react';
 import Header from './components/Header'
+import MyForm from './components/MyForm'
 import Footer from './components/Footer'
 import Main from './components/Main'
 import SelectedBeast from './components/SelectedBeast'
@@ -18,9 +19,12 @@ class App extends React.Component {
       show: false,
       title: '',
       description: '',
-      image_url: ''
+      image_url: '',
+      horns:'',
+      data:data,
     }
   }
+ 
 
   updateState = () => {
     this.setState({
@@ -41,11 +45,29 @@ class App extends React.Component {
       image_url: i
     })
   }
+
+
+  updatePage= (event) => {
+   console.log(typeof(event.target.value));
+   this.setState({ horns: Number(event.target.value) });
+   let newData=data.filter((item)=>{
+   if(item.horns=== Number(event.target.value)){
+   return item;
+}
+   });
+   this.setState({ data: newData });
+console.log(newData,"",this.state.horns);
+
+   this.render();
+  }
+
   render() {
+    // const { show,title,description,image_url,horns,data} = this.state;
     return (
       <>
         <Header />
-        <Main data={data} updateStateFun={this.updateState} closeState={this.closeState} updateStateData={this.updateStateData}/>
+        <MyForm  updatePage={this.updatePage}/>
+        <Main data={this.state.data} updateStateFun={this.updateState} closeState={this.closeState} updateStateData={this.updateStateData}/>
         <SelectedBeast show={this.state.show} title={this.state.title} description={this.state.description}
         image_url={this.state.image_url}
          updateState={this.updateState} closeState={this.closeState} />
